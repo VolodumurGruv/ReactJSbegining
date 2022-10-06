@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Checkout() {
+function Checkout(props) {
 	useEffect(props.flushCartHandler());
 
 	return (
