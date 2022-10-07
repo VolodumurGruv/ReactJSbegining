@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function Checkout(props) {
-	useEffect(props.flushCartHandler());
+	// useEffect(props.flushCartHandler());
 
 	return (
 		<div className="page-body">
@@ -9,7 +9,7 @@ function Checkout(props) {
 				<div className="checkout-page">
 					<h2>Successful!</h2>
 
-					<CommonLinkBtn linkTo={"/"} linkName={"Back to shop"} />
+					{/* <CommonLinkBtn linkTo={"/"} linkName={"Back to shop"} /> */}
 				</div>
 			</div>
 		</div>
