@@ -9,7 +9,7 @@ function App() {
 		<div className="App">
 			{/* <First name="Name" /> */}
 			<Second />
-			<Third min="2" max="5" />
+			<Third min="4" max="5" />
 			<Thourth />
 		</div>
 	);

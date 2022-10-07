@@ -1,4 +1,3 @@
-import { getNextKeyDef } from "@testing-library/user-event/dist/keyboard/getNextKeyDef";
 import { useState, useEffect } from "react";
 
 export default function Fourth() {
@@ -13,14 +12,12 @@ export default function Fourth() {
 	useEffect(() => {
 		getApiData().then((data) => {
 			if (data.url) {
-				console.log(data.url);
-				return setApiSrc(data.url);
+				setApiSrc(data.url);
 			}
 		});
 	}, []);
 
 	function checkFileType(file) {
-		console.log("runned");
 		const fileType = file.split(".").splice(-1, 1).join("");
 		switch (fileType) {
 			case "jpg":
