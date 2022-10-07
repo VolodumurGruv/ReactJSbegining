@@ -4,35 +4,37 @@ import { useState, useEffect } from "react";
 export default function Fourth() {
 	const [apiSrc, setApiSrc] = useState("");
 
+	const defaultImg =
+		"https://random.dog/ffd44f07-7de4-4b8e-8582-8f90fb873ba8.gif";
+
 	const getApiData = () =>
 		fetch("https://random.dog/woof.json").then((res) => res.json());
 
 	useEffect(() => {
 		getApiData().then((data) => {
-			console.log(data.url);
-
-			return setApiSrc(data.url);
+			if (data.url) {
+				console.log(data.url);
+				return setApiSrc(data.url);
+			}
 		});
 	}, []);
 
 	function checkFileType(file) {
 		console.log("runned");
 		const fileType = file.split(".").splice(-1, 1).join("");
-		if (fileType === "jpg" || fileType === "jpeg" || fileType === "gif") {
-			return <img src={apiSrc} />;
-		} else if (fileType === "mp4") {
-			return (
-				<video controls>
-					<source src={apiSrc} type="video/mp4" />
-				</video>
-			);
-		} else {
-			getApiData().then((data) => {
-				console.log(data.url);
-				setApiSrc(data.url);
-
-				return checkFileType(data.url);
-			});
+		switch (fileType) {
+			case "jpg":
+			case "jpeg":
+			case "gif":
+				return <img src={apiSrc} />;
+			case "mp4":
+				return (
+					<video controls>
+						<source src={apiSrc} type="video/mp4" />
+					</video>
+				);
+			default:
+				return <img src={defaultImg} />;
 		}
 	}
 
