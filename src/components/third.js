@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 export default function Third(props) {
 	const [inputValue, setInputValue] = useState("");
 	const ref = useRef("");
-	const msg = {};
 
 	useEffect(() => {
 		console.log(ref.current);
@@ -24,7 +23,6 @@ export default function Third(props) {
 		<div>
 			<input type="text" onChange={handleEvent} />
 			<p>{ref.current}</p>
-			<p>{msg.value}</p>
 		</div>
 	);
 }
