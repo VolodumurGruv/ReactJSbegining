@@ -5,12 +5,11 @@ export default function Third(props) {
 	const ref = useRef("");
 
 	useEffect(() => {
-		console.log(ref.current);
-		if (props.min >= inputValue.length) {
+		if (props.min > inputValue.length || !inputValue.length) {
 			ref.current = `"${inputValue}" should be more or equal ${props.min}`;
-		} else if (props.max >= inputValue.length) {
+		} else if (props.max <= inputValue.length) {
 			ref.current = `"${inputValue}" should be less or equal ${props.max}`;
-		} else if (!inputVallue.length) {
+		} else {
 			ref.current = "";
 		}
 	}, [inputValue]);
